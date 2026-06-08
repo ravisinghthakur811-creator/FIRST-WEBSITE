@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header>
+  <nav>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      <div> VELVET<span>HUB.COM</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Trending</a></li>
+      <li><a href="#">Series</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+<link rel="stylesheet" href="style.css">
+
+
+</header>
+<body
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hero-label">WATCH FREE VIDEOS AND ENJOY IT:)</div>
+  <h1>FIND BEST.<br><em>WATCH.</em><br>EJECT.</h1>
+  <p class="hero-sub">
+    Your personal entertainment hub — handpicked videos, ONLY BEST VIDEOS,
+    all playing right here in your browser all in one place.
+  </p>
+</section>
+
+<!-- ============================================================
+     FILTER TABS (cosmetic — wire up JS if needed)
+============================================================ -->
+<div class="filter-bar">
+  <button class="filter-btn active">All</button>
+  <button class="filter-btn">Featured</button>
+  <button class="filter-btn">Music</button>
+  <button class="filter-btn">Documentary</button>
+  <button class="filter-btn">Gaming</button>
+  <button class="filter-btn">Tech</button>
+  <button class="filter-btn">Sports</button>
+</div>
+
+<!-- ============================================================
+     VIDEO FEED
+     ─────────────────────────────────────────────────────────
+     HOW TO ADD A NEW VIDEO:
+       1. Copy one entire <!-- VIDEO CARD --><!--- block below.
+       2. Paste it inside <div class="feed"> after the last card.
+       3. Replace the placeholder values marked with ★.
+     ─────────────────────────────────────────────────────────
+============================================================ -->
+<main class="feed">
+
+  <!-- ══════════════════════════════════════════════════════
+       VIDEO CARD 1
+       ══════════════════════════════════════════════════════ -->
+  <article class="video-card">
+
+    <!-- ★ THUMBNAIL + PLAYER AREA -->
+    <div class="card-media" onclick="playVideo(this)">
+
+      <!-- ★ THUMBNAIL IMAGE — replace src with your image URL or local path -->
+      <img
+        class="card-thumb"
+        src="movie.mp4" type="video/mp4">
+        alt="Video thumbnail"
+        loading="lazy"
+      />
+
+      <!-- Play button overlay (do not edit) -->
+      <div class="play-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+
+      <!-- ★ CATEGORY — change text to your category label -->
+      <span class="cat-pill">Featured</span>
+
+      <!-- ★ DURATION — change to your video length -->
+      <span class="duration-badge">12:34</span>
+
+      <!-- Embedded player (hidden until clicked) -->
+      <div class="card-player">
+        <!--
+          ★ VIDEO FILE — replace the src with your .mp4 file path or URL.
+          Examples:
+            Local file  →  src="videos/my-video.mp4"
+            Remote URL  →  src="https://example.com/videos/my-video.mp4"
+        -->
+        <video controls preload="none">
+          <source src="https://files.catbox.moe/m95dz2.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Close button (do not edit) -->
+      <button class="close-btn" onclick="closeVideo(event, this)" title="Close player">✕</button>
+    </div>
+
+    <!-- Card info panel -->
+    <div class="card-info">
+      <div class="card-meta">
+        <!-- ★ METADATA — change channel name, date, views -->
+        <span>Your Channel</span>
+        <span class="dot">●</span>
+        <span>June 2026</span>
+        <span class="dot">●</span>
+        <span>1.2M views</span>
+      </div>
+
+      <!-- ★ TITLE -->
+      <h2 class="card-title">GIRLS DANCE</h2>
+
+      <!-- ★ DESCRIPTION -->
+      <p class="card-desc">
+        AS WE CAN SEE 3 GIRLS ARE HAVING FUN IN THERE FREE TIME AND THEY ARE HAVING A GROUP DANCE
+      </p>
+
+      <div class="card-actions">
+        <button class="btn-watch" onclick="playVideo(this.closest('.video-card').querySelector('.card-media'))">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Watch Now
+        </button>
+        <button class="btn-save">＋ Save</button>
+      </div>
+
+      <div class="like-row">
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <!-- ★ LIKES count -->
+          48K
+        </div>
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          <!-- ★ COMMENTS count -->
+          3.2K
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════════════════════════════════════════════════
+       VIDEO CARD 2
+       ══════════════════════════════════════════════════════ -->
+  <article class="video-card">
+    <div class="card-media" onclick="playVideo(this)">
+      <!-- ★ Replace with your thumbnail -->
+      <img
+        class="card-thumb"
+        src="https://images"
+        alt="Video thumbnail"
+        loading="lazy"
+      />
+      <div class="play-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <span class="cat-pill">POND</span>
+      <span class="duration-badge">0:17</span>
+      <div class="card-player">
+        <!-- ★ Replace YOUR_VIDEO_FILE.mp4 with your .mp4 file path or URL -->
+        <video controls preload="none">
+          <source src="https://files.catbox.moe/mgpsb6.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+      <button class="close-btn" onclick="closeVideo(event, this)" title="Close player">✕</button>
+    </div>
+    <div class="card-info">
+      <div class="card-meta">
+        <span>POND VIDEO</span>
+        <span class="dot">●</span>
+        <span>May 2026</span>
+        <span class="dot">●</span>
+        <span>850K views</span>
+      </div>
+      <!-- ★ Replace with your title -->
+      <h2 class="card-title">A POND ALONG THE MOVING LAKE</h2>
+      <!-- ★ Replace with your description -->
+      <p class="card-desc">
+        A POND WHICH IS BEEN MOVING ALONG THE WINDS OF THE GOD MADE MIRACLE
+
+      </p>
+      <div class="card-actions">
+        <button class="btn-watch" onclick="playVideo(this.closest('.video-card').querySelector('.card-media'))">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Watch Now
+        </button>
+        <button class="btn-save">＋ Save</button>
+      </div>
+      <div class="like-row">
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          92K
+        </div>
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          7.1K
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════════════════════════════════════════════════
+       VIDEO CARD 3
+       ══════════════════════════════════════════════════════ -->
+  <article class="video-card">
+    <div class="card-media" onclick="playVideo(this)">
+      <!-- ★ Replace with your thumbnail -->
+      <img
+        class="card-thumb"
+        src="https://images"
+        alt="Video thumbnail"
+        loading="lazy"
+      />
+      <div class="play-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <span class="cat-pill">CARS</span>
+      <span class="duration-badge">0:10</span>
+      <div class="card-player">
+        <!-- ★ Replace YOUR_VIDEO_FILE.mp4 with your .mp4 file path or URL -->
+        <video controls preload="none">
+          <source src="https://files.catbox.moe/pkm8de.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+      <button class="close-btn" onclick="closeVideo(event, this)" title="Close player">✕</button>
+    </div>
+    <div class="card-info">
+      <div class="card-meta">
+        <span>CARS Reviews</span>
+        <span class="dot">●</span>
+        <span>Apr 2026</span>
+        <span class="dot">●</span>
+        <span>2.4M views</span>
+      </div>
+      <!-- ★ Replace with your title -->
+      <h2 class="card-title">THE SPORTS RACING CAR</h2>
+      <!-- ★ Replace with your description -->
+      <p class="card-desc">
+        ITS AN HAMILTON TON64 SPORTS CAR WHICH IS VERY RARE AND TODAY NOW WE CAN SEE THIS IN THIS MIRACE SITUATION GOD BLESS!!!
+      </p>
+      <div class="card-actions">
+        <button class="btn-watch" onclick="playVideo(this.closest('.video-card').querySelector('.card-media'))">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Watch Now
+        </button>
+        <button class="btn-save">＋ Save</button>
+      </div>
+      <div class="like-row">
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          115K
+        </div>
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          9.8K
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  ★ PASTE YOUR NEXT VIDEO CARD HERE                      ║
+  ║  Copy the entire <article class="video-card"> block     ║
+  ║  above and paste it directly below this comment.        ║
+  ╚══════════════════════════════════════════════════════════╝
+  -->
+
+</main><!-- end .feed -->
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <p>© 2025 <span>StreamVault</span> — Built for your entertainment.</p>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+
+<!DOCTYPE html>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header>
+  <nav>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      <div> VELVET<span>HUB.COM</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Trending</a></li>
+      <li><a href="#">Series</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hero-label">WATCH FREE VIDEOS AND ENJOY IT:)</div>
+  <h1>FIND BEST.<br><em>WATCH.</em><br>EJECT.</h1>
+  <p class="hero-sub">
+    Your personal entertainment hub — handpicked videos, ONLY BEST VIDEOS,
+    all playing right here in your browser all in one place.
+  </p>
+</section>
+
+<!-- ============================================================
+     FILTER TABS (cosmetic — wire up JS if needed)
+============================================================ -->
+<div class="filter-bar">
+  <button class="filter-btn active">All</button>
+  <button class="filter-btn">Featured</button>
+  <button class="filter-btn">Music</button>
+  <button class="filter-btn">Documentary</button>
+  <button class="filter-btn">Gaming</button>
+  <button class="filter-btn">Tech</button>
+  <button class="filter-btn">Sports</button>
+</div>
+
+<!-- ============================================================
+     VIDEO FEED
+     ─────────────────────────────────────────────────────────
+     HOW TO ADD A NEW VIDEO:
+       1. Copy one entire <!-- VIDEO CARD --><!--- block below.
+       2. Paste it inside <div class="feed"> after the last card.
+       3. Replace the placeholder values marked with ★.
+     ─────────────────────────────────────────────────────────
+============================================================ -->
+<main class="feed">
+
+  <!-- ══════════════════════════════════════════════════════
+       VIDEO CARD 1
+       ══════════════════════════════════════════════════════ -->
+  <article class="video-card">
+
+    <!-- ★ THUMBNAIL + PLAYER AREA -->
+    <div class="card-media" onclick="playVideo(this)">
+
+      <!-- ★ THUMBNAIL IMAGE — replace src with your image URL or local path -->
+      <img
+        class="card-thumb"
+        src="movie.mp4" type="video/mp4">
+        alt="Video thumbnail"
+        loading="lazy"
+      />
+
+      <!-- Play button overlay (do not edit) -->
+      <div class="play-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+
+      <!-- ★ CATEGORY — change text to your category label -->
+      <span class="cat-pill">Featured</span>
+
+      <!-- ★ DURATION — change to your video length -->
+      <span class="duration-badge">12:34</span>
+
+      <!-- Embedded player (hidden until clicked) -->
+      <div class="card-player">
+        <!--
+          ★ VIDEO FILE — replace the src with your .mp4 file path or URL.
+          Examples:
+            Local file  →  src="videos/my-video.mp4"
+            Remote URL  →  src="https://example.com/videos/my-video.mp4"
+        -->
+        <video controls preload="none">
+          <source src="https://files.catbox.moe/m95dz2.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Close button (do not edit) -->
+      <button class="close-btn" onclick="closeVideo(event, this)" title="Close player">✕</button>
+    </div>
+
+    <!-- Card info panel -->
+    <div class="card-info">
+      <div class="card-meta">
+        <!-- ★ METADATA — change channel name, date, views -->
+        <span>Your Channel</span>
+        <span class="dot">●</span>
+        <span>June 2026</span>
+        <span class="dot">●</span>
+        <span>1.2M views</span>
+      </div>
+
+      <!-- ★ TITLE -->
+      <h2 class="card-title">GIRLS DANCE</h2>
+
+      <!-- ★ DESCRIPTION -->
+      <p class="card-desc">
+        AS WE CAN SEE 3 GIRLS ARE HAVING FUN IN THERE FREE TIME AND THEY ARE HAVING A GROUP DANCE
+      </p>
+
+      <div class="card-actions">
+        <button class="btn-watch" onclick="playVideo(this.closest('.video-card').querySelector('.card-media'))">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Watch Now
+        </button>
+        <button class="btn-save">＋ Save</button>
+      </div>
+
+      <div class="like-row">
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <!-- ★ LIKES count -->
+          48K
+        </div>
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          <!-- ★ COMMENTS count -->
+          3.2K
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════════════════════════════════════════════════
+       VIDEO CARD 2
+       ══════════════════════════════════════════════════════ -->
+  <article class="video-card">
+    <div class="card-media" onclick="playVideo(this)">
+      <!-- ★ Replace with your thumbnail -->
+      <img
+        class="card-thumb"
+        src="https://images"
+        alt="Video thumbnail"
+        loading="lazy"
+      />
+      <div class="play-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <span class="cat-pill">POND</span>
+      <span class="duration-badge">0:17</span>
+      <div class="card-player">
+        <!-- ★ Replace YOUR_VIDEO_FILE.mp4 with your .mp4 file path or URL -->
+        <video controls preload="none">
+          <source src="https://files.catbox.moe/mgpsb6.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+      <button class="close-btn" onclick="closeVideo(event, this)" title="Close player">✕</button>
+    </div>
+    <div class="card-info">
+      <div class="card-meta">
+        <span>POND VIDEO</span>
+        <span class="dot">●</span>
+        <span>May 2026</span>
+        <span class="dot">●</span>
+        <span>850K views</span>
+      </div>
+      <!-- ★ Replace with your title -->
+      <h2 class="card-title">A POND ALONG THE MOVING LAKE</h2>
+      <!-- ★ Replace with your description -->
+      <p class="card-desc">
+        A POND WHICH IS BEEN MOVING ALONG THE WINDS OF THE GOD MADE MIRACLE
+
+      </p>
+      <div class="card-actions">
+        <button class="btn-watch" onclick="playVideo(this.closest('.video-card').querySelector('.card-media'))">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Watch Now
+        </button>
+        <button class="btn-save">＋ Save</button>
+      </div>
+      <div class="like-row">
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          92K
+        </div>
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          7.1K
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════════════════════════════════════════════════
+       VIDEO CARD 3
+       ══════════════════════════════════════════════════════ -->
+  <article class="video-card">
+    <div class="card-media" onclick="playVideo(this)">
+      <!-- ★ Replace with your thumbnail -->
+      <img
+        class="card-thumb"
+        src="https://images"
+        alt="Video thumbnail"
+        loading="lazy"
+      />
+      <div class="play-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <span class="cat-pill">CARS</span>
+      <span class="duration-badge">0:10</span>
+      <div class="card-player">
+        <!-- ★ Replace YOUR_VIDEO_FILE.mp4 with your .mp4 file path or URL -->
+        <video controls preload="none">
+          <source src="https://files.catbox.moe/pkm8de.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+      <button class="close-btn" onclick="closeVideo(event, this)" title="Close player">✕</button>
+    </div>
+    <div class="card-info">
+      <div class="card-meta">
+        <span>CARS Reviews</span>
+        <span class="dot">●</span>
+        <span>Apr 2026</span>
+        <span class="dot">●</span>
+        <span>2.4M views</span>
+      </div>
+      <!-- ★ Replace with your title -->
+      <h2 class="card-title">THE SPORTS RACING CAR</h2>
+      <!-- ★ Replace with your description -->
+      <p class="card-desc">
+        ITS AN HAMILTON TON64 SPORTS CAR WHICH IS VERY RARE AND TODAY NOW WE CAN SEE THIS IN THIS MIRACE SITUATION GOD BLESS!!!
+      </p>
+      <div class="card-actions">
+        <button class="btn-watch" onclick="playVideo(this.closest('.video-card').querySelector('.card-media'))">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Watch Now
+        </button>
+        <button class="btn-save">＋ Save</button>
+      </div>
+      <div class="like-row">
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          115K
+        </div>
+        <div class="like-item">
+          <svg viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          9.8K
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  ★ PASTE YOUR NEXT VIDEO CARD HERE                      ║
+  ║  Copy the entire <article class="video-card"> block     ║
+  ║  above and paste it directly below this comment.        ║
+  ╚══════════════════════════════════════════════════════════╝
+  -->
+
+</main><!-- end .feed -->
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <p>© 2025 <span>StreamVault</span> — Built for your entertainment.</p>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script src="script.java"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
